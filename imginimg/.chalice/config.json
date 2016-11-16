@@ -1,4 +1,7 @@
 {
+  "manage_iam_role": false, 
+  "iam_role_arn": "arn:aws:iam::602636675831:role/lambda_s3_exec_role", 
+  "lambda_arn": "arn:aws:lambda:eu-west-1:602636675831:function:imginimg", 
   "app_name": "imginimg", 
   "stage": "dev"
 }

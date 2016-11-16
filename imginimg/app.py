@@ -20,7 +20,7 @@ from py_bing_search import PyBingImageSearch
 from PIL import Image, ImageDraw
 
 logging.basicConfig(level=logging.INFO)
-BING_API_CREDENTIALS = str(open('secret').readline())
+BING_API_CREDENTIALS = str(open('secret.py').readline())
 
 # logging.info('using credentials %s' %BING_API_CREDENTIALS)
 DEFAULT_FOREGROUND = 'examples/bot.png'
@@ -72,7 +72,7 @@ def selfie(query):
     background = bing_search(query)
     combined = combine_images(DEFAULT_FOREGROUND, background)
     s3_client = boto3.client('s3')
-    bucket_url = 'https://s3-eu-west-1.amazonaws.com/beeva-radical-lab/lambdas/'
+    bucket_url = 'https://s3-eu-west-1.amazonaws.com/beeva-radical-lab/lambdas/botselfie/'
     url = '%s%s' %(bucket_url, 'default.png')
     try:
         now = '%s%s%s%s%s%s%s' %(datetime.now().year,datetime.now().month,datetime.now().day,datetime.now().hour,datetime.now().min,datetime.now().second,datetime.now().microsecond)
@@ -81,7 +81,7 @@ def selfie(query):
         now = now.replace(' ', '')
         now = now.strip()
         filename = 'combined_%s_%s' %(query, now)
-        s3_client.upload_file(combined, 'beeva-radical-lab/lambdas', filename)
+        s3_client.upload_file(combined, 'beeva-radical-lab', 'lambdas/botselfie/%s' %filename)
         url = '%s%s' %(bucket_url,filename)
     except Exception as e:
         logging.error(e)
