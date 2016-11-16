@@ -78,7 +78,7 @@ def selfie(query):
         now = '%s%s%s%s%s%s%s' %(datetime.now().year,datetime.now().month,datetime.now().day,datetime.now().hour,datetime.now().min,datetime.now().second,datetime.now().microsecond)
         now = hash(now)
         filename = 'combined%s.png' %now
-        s3_client.upload_file(combined, 'beeva-radical-lab', 'lambdas/botselfie/%s' %filename, ExtraArgs={'ACL': 'public-read'})
+        s3_client.upload_file(combined, 'beeva-radical-lab', 'lambdas/botselfie/%s' %filename, ExtraArgs={'ACL': 'public-read', 'ContentType': 'image/png'})
         url = '%s%s' %(bucket_url,filename)
     except Exception as e:
         logging.error(e)
