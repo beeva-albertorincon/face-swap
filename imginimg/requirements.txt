@@ -1,5 +1,4 @@
-boto3
 Pillow==3.4.2
 py-bing-search==0.2.6
 chalice==0.4.0
-botocore==1.4.72
+boto3==1.4.1
