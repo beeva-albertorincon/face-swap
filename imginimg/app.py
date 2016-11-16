@@ -35,8 +35,8 @@ def bing_search(search_term):
         bing_image = PyBingImageSearch(BING_API_CREDENTIALS.strip(), search_term)
         result = bing_image.search(limit=1, format='json')[0]
         extension = result.content_type.split('/')[1]
-        urllib.urlretrieve(result.media_url, "background.%s"%extension)
-        background = "background.%s"%extension
+        urllib.urlretrieve(result.media_url, "/tmp/background.%s"%extension)
+        background = "/tmp/background.%s"%extension
         logging.info('Bing search succesful')
     except Exception as e:
         logging.error(e)
@@ -54,8 +54,8 @@ def combine_images(foreground,background):
         back_x, back_y = im_backg.size
         im_bot = im_bot.resize((back_x/3, back_y/2))
         im_backg.paste(im_bot, (back_x/8, back_y/2), im_bot)
-        im_backg.save('output.png', 'PNG')
-        combined = 'output.png'
+        im_backg.save('/tmp/output.png', 'PNG')
+        combined = '/tmp/output.png'
         logging.info('Done combine images')
     except Exception as e:
         logging.error(e)
