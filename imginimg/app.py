@@ -77,7 +77,7 @@ def selfie(query):
     try:
         now = '%s%s%s%s%s%s%s' %(datetime.now().year,datetime.now().month,datetime.now().day,datetime.now().hour,datetime.now().min,datetime.now().second,datetime.now().microsecond)
         now = hash(now)
-        filename = 'combined%s' %now
+        filename = 'combined%s.png' %now
         s3_client.upload_file(combined, 'beeva-radical-lab', 'lambdas/botselfie/%s' %filename, ExtraArgs={'ACL': 'public-read'})
         url = '%s%s' %(bucket_url,filename)
     except Exception as e:
