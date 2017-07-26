@@ -10,10 +10,7 @@ Insert Bot logo image into the desired city.
 Asking for PARIS as city
 
 
-![Bot]
-(https://github.com/beeva-albertorincon/face-swap/blob/master/imginimg/examples/bot.png)
-![Landscape]
-(https://github.com/beeva-albertorincon/face-swap/blob/master/imginimg/examples/eiffel.png)
-![Result]
-(https://github.com/beeva-albertorincon/face-swap/blob/master/imginimg/examples/output.png)
+![Bot](https://github.com/beeva-albertorincon/face-swap/blob/master/imginimg/examples/bot.png)
+![Landscape](https://github.com/beeva-albertorincon/face-swap/blob/master/imginimg/examples/eiffel.png)
+![Result](https://github.com/beeva-albertorincon/face-swap/blob/master/imginimg/examples/output.png)
 
